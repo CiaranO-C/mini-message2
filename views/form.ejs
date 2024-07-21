@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>MiniMsg | <%= title%></title>
+    </head>
+    <body>
+        <h1 class="send-msg-heading">Send new message</h1>
+        <form method="post" action="/new" class="message-form">
+            <label>
+                Username
+                <input type="text" name="username">
+            </label>
+            <label>
+                Message
+                <input type="text" name="message">
+            </label>
+            <button type="submit">Send</button>
+        </form>
+    </body>
+</html>

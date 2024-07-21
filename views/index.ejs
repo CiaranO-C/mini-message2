@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>
+            MiniMsg | <%= title%>
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <a href="/new"><button class="button-17" role="button">Send a message!</button></a>
+        <% messages.map(msg => { %>
+            <div class="message-container">
+               <a href="messages/<%= msg.id%>"><button class="more-info">+</button></a>
+                <p class="message"><%= msg.text%></p>
+                <div class="message-details">
+                    <span class="sent-by"><%= msg.user%></span>
+                    <span class="sent-at"><%= msg.added%></span>
+                </div>
+            </div>
+            <% }) %>
+    </body>
+</html>
