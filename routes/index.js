@@ -1,16 +1,16 @@
-import { Router } from "express";
-import messages from '../msgData.js';
+import Router from "express-promise-router";
+import { getAllMessages } from "../db/queries.js";
 
 const indexRouter = Router();
 
 
+indexRouter.get("/", async (req, res, next) => {
+  const messages = await getAllMessages();
 
-indexRouter.get("/", (req, res, next) => {
   res.render("index", {
     title: "Home",
     messages,
   });
 });
-
 
 export default indexRouter;

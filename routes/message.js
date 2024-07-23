@@ -1,16 +1,11 @@
-import { Router } from "express";
-import messages from "../msgData.js";
+import Router from "express-promise-router";
+import { findMessage } from "../db/queries.js";
 
 const messageRouter = Router();
 
-messageRouter.get("/:messageid", (req, res, next) => {
+messageRouter.get("/:messageid", async (req, res, next) => {
   const id = req.params.messageid;
-
-  const message = messages.find((msg) => {
-    return msg.id === id;
-  });
-
-  console.log(message);
+  const message = await findMessage(id);
 
   res.render("messageDetail", {
     title: "Msg Detail",
